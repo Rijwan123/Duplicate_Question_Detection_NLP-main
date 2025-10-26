@@ -27,7 +27,7 @@ print(file_path)
 #     st.error(f"Error loading model: {e}")
 
 
-model = pickle.load(open(new_file,'rb'))
+model = pickle.load(open(file_path,'rb'))
 
 st.header('Duplicate Question Pairs')
 
@@ -43,6 +43,7 @@ if st.button('Find'):
     else:
 
         st.header('Not Duplicate')
+
 
 
 
