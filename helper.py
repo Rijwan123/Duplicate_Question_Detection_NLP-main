@@ -19,7 +19,7 @@ current_dir = os.path.dirname(current_file)
 new_file = os.path.join(current_dir, "bow.pkl_1")
 
 print(new_file)
-cv = pickle.load(open(r'new_file','rb'))
+cv = pickle.load(open(new_file,'rb'))
 
 def test_common_words(q1,q2):
     w1 = set(map(lambda word: word.lower().strip(), q1.split(" ")))
@@ -325,5 +325,6 @@ def query_point_creator(q1, q2):
     q2_bow = cv.transform([q2]).toarray()
 
     return np.hstack((np.array(input_query).reshape(1, 22), q1_bow, q2_bow))
+
 
 
