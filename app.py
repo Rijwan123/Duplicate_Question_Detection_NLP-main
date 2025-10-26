@@ -1,8 +1,9 @@
 import streamlit as st
 import helper
 import pickle
-
 import os
+import gzip
+
 
 # Get the path of the current file
 current_file = os.path.abspath(__file__)
@@ -11,11 +12,22 @@ current_file = os.path.abspath(__file__)
 current_dir = os.path.dirname(current_file)
 
 # Create a path to a new file relative to this script
-new_file = os.path.join(current_dir, "model_quora_duplicate_question_detection_1.pkl.gz")
+file_path = os.path.join(current_dir, "model_quora_duplicate_question_detection_1.pkl.gz")
 
-print(new_file)
+print(file_path)
 
-model = pickle.load(open(new_file,'rb'))
+
+try:
+    with gzip.open(file_path, "rb") as f:
+        model = pickle.load(f)
+    st.success("Model loaded successfully ✅")
+except FileNotFoundError:
+    st.error(f"Model file not found: {file_path}")
+except Exception as e:
+    st.error(f"Error loading model: {e}")
+
+
+#model = pickle.load(open(new_file,'rb'))
 
 st.header('Duplicate Question Pairs')
 
@@ -31,6 +43,7 @@ if st.button('Find'):
     else:
 
         st.header('Not Duplicate')
+
 
 
 
