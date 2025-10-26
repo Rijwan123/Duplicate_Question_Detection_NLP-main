@@ -2,7 +2,7 @@ import streamlit as st
 import helper
 import pickle
 
-model = pickle.load(open(r'C:\Users\admin\PycharmProjects\python_Project\NLP_Duplicate_Quetsion_Detection_Quora\model_quora_duplicate_question_detection_1.pkl','rb'))
+model = pickle.load(open(r'model_quora_duplicate_question_detection_1.pkl','rb'))
 
 st.header('Duplicate Question Pairs')
 
@@ -16,4 +16,5 @@ if st.button('Find'):
     if result:
         st.header('Duplicate')
     else:
+
         st.header('Not Duplicate')
