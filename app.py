@@ -15,7 +15,7 @@ new_file = os.path.join(current_dir, "model_quora_duplicate_question_detection_1
 
 print(new_file)
 
-model = pickle.load(open(r'new_file','rb'))
+model = pickle.load(open(new_file,'rb'))
 
 st.header('Duplicate Question Pairs')
 
@@ -31,4 +31,5 @@ if st.button('Find'):
     else:
 
         st.header('Not Duplicate')
+
 
