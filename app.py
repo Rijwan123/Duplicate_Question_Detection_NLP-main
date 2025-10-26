@@ -11,7 +11,7 @@ current_file = os.path.abspath(__file__)
 current_dir = os.path.dirname(current_file)
 
 # Create a path to a new file relative to this script
-new_file = os.path.join(current_dir, "model_quora_duplicate_question_detection_1.pkl")
+new_file = os.path.join(current_dir, "model_quora_duplicate_question_detection_1.pkl.gz")
 
 print(new_file)
 
@@ -31,5 +31,6 @@ if st.button('Find'):
     else:
 
         st.header('Not Duplicate')
+
 
 
