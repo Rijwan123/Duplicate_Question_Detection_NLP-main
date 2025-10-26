@@ -8,7 +8,7 @@ import numpy as np
 import nltk
 nltk.download('stopwords')
 
-cv = pickle.load(open(r'C:\Users\admin\PycharmProjects\python_Project\NLP_Duplicate_Quetsion_Detection_Quora\bow.pkl_1','rb'))
+cv = pickle.load(open(r'bow.pkl_1','rb'))
 
 def test_common_words(q1,q2):
     w1 = set(map(lambda word: word.lower().strip(), q1.split(" ")))
@@ -314,3 +314,4 @@ def query_point_creator(q1, q2):
     q2_bow = cv.transform([q2]).toarray()
 
     return np.hstack((np.array(input_query).reshape(1, 22), q1_bow, q2_bow))
+
